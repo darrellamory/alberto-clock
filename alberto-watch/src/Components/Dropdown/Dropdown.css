@@ -1,0 +1,153 @@
+.dropdown-container {
+  position: relative; /* Changed from absolute to relative */
+  display: inline-block;
+  margin: 20px;
+  z-index: 9999; /* Ensure the entire dropdown container is on top */
+}
+
+.dropdown-toggle {
+  /* Most styles are inherited from the global button style in index.css */
+  /* We add flex properties to space out the text and the arrow icon */
+  width: 110px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color:#FDF2E6;
+  color: black;
+  margin-top: 10px;
+  /* z-index removed, inherits from parent */
+}
+
+.dropdown-toggle:hover {
+  border-color: #646cff;
+}
+
+.dropdownContent {
+  position: absolute;
+  top: 100%; /* Position below the button */
+  left: 0;
+  background-color: #FDF2E6; /* Darker background for the menu */
+  color: #FDF2E6;
+  border: 1px solid #FDF2E6;
+  border-radius: 4px;
+  margin: 5px 0 0 0; /* Space between button and menu */
+  z-index: 9999; /* Ensure the dropdown content is on top */
+  width: 1450px; /* Adjust width to fit both columns */
+  height: 700px; /* Adjust height as needed */
+  padding: 0; /* Remove padding to allow columns to fill space */
+  overflow: hidden; /* Hide anything that might overflow */
+  margin-left: -40px;
+  opacity: 1;
+}
+.dropdownContent:hover {
+  position: absolute;
+  top: 100%; /* Position below the button */
+  left: 0;
+  background-color: #FDF2E6; /* Darker background for the menu */
+  border: 1px solid #FDF2E6;
+  border-radius: 4px;
+  margin: 5px 0 0 0; /* Space between button and menu */
+  z-index: 9999; /* Ensure the dropdown content is on top */
+  width: 1450px; /* Adjust width to fit both columns */
+  height: 700px; /* Adjust height as needed */
+  transition: 0.3s;
+  padding: 0; /* Remove padding to allow columns to fill space */
+  overflow: hidden; /* Hide anything that might overflow */
+  margin-left: -40px;
+  opacity: 1;
+}
+
+.dropdown-layout {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  /* z-index removed, inherits from parent */
+}
+
+.menu-column {
+  flex: 1; /* Takes up 1 part of the space */
+  padding: 20px;
+  border-right: 1px solid #e0d8ce; /* Separator line */
+  box-sizing: border-box;
+  opacity: 1;
+  /* z-index removed, inherits from parent */
+}
+
+.menu-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdownContent li {
+  padding: 0; /* Remove default list item padding */
+  opacity: 1;
+}
+
+.slideshow-column {
+  flex: 2; /* Takes up 2 parts of the space, making it wider */
+  display: grid;
+  grid-template-columns: auto 1fr auto; /* Arrow | Container | Arrow */
+  align-items: center;
+  gap: 10px; /* Space between arrows and container */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.slideshow-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Align items to the start */
+  gap: 15px; /* This will create a small space between each image */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  scroll-behavior: smooth; /* For smooth scrolling via JS */
+  /* z-index removed, inherits from parent */
+
+  /* Hide scrollbar for a cleaner look */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.slideshow-container::-webkit-scrollbar {
+    display: none;
+}
+
+.slide-content {
+  flex-shrink: 0; /* Prevent images from shrinking */
+}
+
+.slide-image {
+  width: 450px; /* Set a consistent, larger width for all images */
+  height: auto; /* Maintain aspect ratio */
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.slide-arrow {
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  line-height: 1;
+  font-size: 20px;
+  /* z-index removed, inherits from parent */
+}
+
+.dropdownContent a {
+  display: block; /* Make the whole area clickable */
+  padding: 8px 16px;
+  color: rgba(0, 0, 0, 0.87); /* Text color for menu items */
+  text-decoration: none;
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+.dropdownContent a:hover {
+  color: #646cff; /* Change text color on hover */
+}

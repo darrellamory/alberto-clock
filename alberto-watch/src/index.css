@@ -1,0 +1,951 @@
+/* Remove or comment out the Google Fonts @import */
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'); */
+
+/* Add @font-face for your local Poppins font */
+@font-face {
+  font-family: "Poppins"; /* This is the name you will use */
+  src: url("/fonts/Poppins-Regular.ttf") format("truetype"); /* Path relative to the public directory */
+  /* If you have other weights/styles, add separate @font-face rules for them */
+  font-weight: normal; /* Or 400 */
+  font-style: normal;
+  font-display: swap; /* Recommended */
+}
+@font-face {
+  font-family: "Poppins"; /* This is the name you will use */
+  src: url("/fonts/Poppins-Bold.ttf") format("truetype"); /* Path relative to the public directory */
+  /* If you have other weights/styles, add separate @font-face rules for them */
+  font-weight: bold; /* Or 400 */
+  font-style: bold;
+  font-display: swap; /* Recommended */
+}
+@font-face {
+  font-family: "Leon"; /* Choose a name for this font */
+  src: url("/fonts/Leon-Regular-trial.ttf") format("truetype"); /* Correct format for OTF */
+  /* If you have other weights/styles for MyOtherFont, add separate @font-face rules for them */
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Apply your custom font here, with fallbacks */
+  /* It's generally better to apply specific fonts to specific elements rather than making one a fallback for another in :root unless that's the specific design intent. */
+  font-family: "Poppins", "Leon", system-ui, Avenir, Helvetica, Arial,
+    sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  /* Removing flex properties to allow for a standard block layout */
+  min-height: 100vh;
+  overflow-x: hidden; /* Prevents horizontal scrollbar caused by wide elements */
+  width: 100%; /* Ensure body takes full width */
+  max-width: 100%; /* Ensure body takes full width */
+  overflow-y: scroll; /* Explicitly enable vertical scrolling */
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+footer {
+  color: rgb(248, 248, 248);
+  width: 100%;
+  height: 500px;
+  margin-top: 50px; /* Add this line to create space above the footer */
+  margin-left: 20px;
+}
+
+.visito {
+  color: rgb(255, 255, 255);
+  margin: 20px; /* Keep some margin for spacing around the text */
+}
+
+.header1 {
+  background-color: #fdf2e6;
+  width: 100%; /* Make header fill the width of its container (.App) */
+  height: 110px;
+  color: #646cff;
+  position: relative; /* Changed to scroll with the page */
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  z-index: 9999; /* Ensure header is always on top */
+}
+
+.header-background-extension {
+  background-color: #fdf2e6; /* Same as header1 background */
+  width: 100%; /* Changed from fixed width to 100% */
+  height: 50px; /* Adjust height as needed to cover the gap */
+  position: absolute; /* Position it relative to the viewport */
+  top: 140px; /* Position it right below the header, matching header height */
+  left: 0;
+  z-index: 99; /* Slightly lower z-index than the header */
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: relative; /* For positioning the logo */
+}
+
+.logo {
+  width: 200px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0; /* Reset margin */
+}
+
+/* Styles for the page-scrolling slideshow */
+.page-scrolling-slideshow {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center slides if they are not full width */
+  gap: 0px; /* Space between slides */
+  width: 100%;
+}
+
+.slide-item {
+  width: 100%;
+  height: 500px;
+  opacity: 1;
+  transform: translateY(0px);
+  transition: opacity 0.1s, transform 0.1s;
+  will-change: opacity, transform; /* Hint for browser optimization */
+  position: sticky;
+  top: 0; /* Stick to the very top of the viewport after header scrolls away */
+  background-color: #242424;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slide-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide-image-content {
+  width: 100%;
+  height: 500px; /* Or use height: auto; for natural image height */
+  object-fit: cover; /* Adjust as needed: cover, contain, etc. */
+  display: block; /* Remove extra space below image if it's inline */
+  border-radius: 8px; /* Optional: rounded corners for images */
+}
+
+main {
+  /* No top padding needed as the header is now in the normal document flow */
+  width: 100%; /* Ensure main takes full width if not already */
+}
+
+.slide-text-overlay {
+  position: absolute;
+  color: white;
+  text-align: center;
+  max-width: 80%;
+  padding: 20px;
+  border-radius: 8px;
+  pointer-events: none; /* Prevents text from blocking mouse events */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.is-visible .slide-text-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide-title {
+  font-family: "Leon", sans-serif;
+  font-size: 2.5em;
+  margin: 0;
+}
+
+.slide-description {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.2em;
+  margin-top: 10px;
+}
+
+
+.account-dropdown {
+  /* This div will be pushed to the right by justify-content: space-between */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  
+}
+
+.new-page-slideshow-container {
+  width: 1500px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  z-index: 0; /* Ensure it is behind the header and dropdown */
+  margin-top: 0px;
+  height: 1000px; /* Reduced height to bring datagrid closer */
+  display: flex;
+}
+
+
+.slides-wrapper {
+  display: flex;
+  transition: transform 1s ease-in-out;
+  z-index: 1;
+  width: 1500px;
+}
+
+.new-page-slide {
+  width: 1500px;
+  flex-shrink: 0;
+  object-fit: fill;
+}
+
+.page-container {
+  width: 1500px;
+  overflow: hidden;
+  position: relative;
+}
+
+/*
+  You can now style individual slides.
+  The index corresponds to the order of images in your `images` array in NewPage.jsx
+*/
+
+/* Example 1: Make the first image (LeBron, index 0) fit completely inside the slide area */
+.slide-image-0 {
+  width: 1500px;
+}
+
+/* Example 2: For the third image (Hamilton, index 2), focus on the top part of the image */
+.slide-image-2 {
+  object-position: center top;
+  width: 1500px;
+  height: 1200px;
+  object-fit: cover;
+}
+
+/* Add this for testing */
+.slide-image-1 {
+  width: 1500px;
+  height: 1200px;
+  object-fit: cover;
+}
+.slide-image-3 {
+  width: 1500px;
+  height: 1200px;
+}
+.slide-image-4 {
+  width: 1500px;
+  height: 1200px;
+}
+.slide-image-5 {
+  width: 1500px;
+  height: 1200px;
+}
+.slide-image-6 {
+  width: 1500px;
+  height: 1200px;
+}
+
+.card:hover {
+  transition: 0.7s;
+  box-shadow: 10px 10px 10px rgb(0, 0, 0);
+  background-color: rgb(51, 56, 57);
+}
+
+.card img {
+  width: 100%;
+}
+
+.card .card-image:hover {
+  transform: scale(1.1);
+  transition: 0.7s;
+}
+
+.card .card-title:hover {
+  color: hsl(185, 54%, 40%);
+  transition: 0.7s;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items horizontally within the card */
+  text-align: center; /* Center text within its own element */
+  padding: 15px;
+  border: 1px solid #333; /* Example border */
+  border-radius: 8px;
+  background-color: #222; /* Example background */
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-left: 90px;
+}
+
+.card .card-image {
+  width: 200px;
+  height: auto;
+  border-radius: 20%;
+  margin-bottom: 15px; /* Add space below the image */
+}
+
+.card-image-dynamic {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card .card-title {
+  font-family: poppins;
+  margin-bottom: 10px; /* Add space below the title */
+  color: hsl(0, 0%, 100%);
+  font-size: 20px;
+}
+
+.card .card-text {
+  font-family: poppins;
+  color: rgb(246, 244, 244);
+  font-size: medium;
+  margin-bottom: 10px; /* Add space below the text */
+}
+
+.price {
+  margin-top: auto; /* Pushes price to the bottom if card has flexible height */
+  margin-bottom: 0; /* Remove any default bottom margin */
+  font-weight: bold;
+  color: #007bff; /* Example color for price */
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+  max-width: 100%; /* Allow it to take full width */
+  margin: 0 auto; /* Remove auto margins for centering */
+}
+
+@media (max-width: 768px) {
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.datagrid {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 100%; /* Allow it to take full width */
+  margin: 0 auto; /* Remove auto margins for centering */
+  margin-top: 0px; /* Adjust this value as needed */
+}
+
+.footer-box {
+  background-color: #444; /* A darker background for the box */
+  width: 1100px;
+  height: 400px;
+  margin-left: 100px;
+}
+.footer-img{
+  margin-left: -40px;
+  width: 300px;
+}
+.para{
+  font-weight: bold;
+  font-size: 20px;
+  margin-left: 290px;
+  margin-top: -250px;
+}
+.para1{
+  font-weight: 900px;
+  font-size: 20px;
+  margin-left: 750px;
+  margin-top: -49px;
+  font: poppins, Bold;
+}
+.para2{
+  font-weight: 900px;
+  font-size: 20px;
+  margin-left: 750px;
+  margin-top: 100px;
+  font: poppins, Bold;
+}
+.para3{
+  font-weight: 900px;
+  font-size: 20px;
+  margin-left: 290px;
+  margin-top: -50px;
+  font: poppins, Bold;
+}
+.para4{
+  font-weight: 400px;
+  font-size: 12px;
+  margin-left: 70px;
+  margin-top: 0px; /* Corrected from 'px' to '0px' */
+  font: poppins, Bold;
+}
+.para5{
+  font-weight: 400px;
+  font-size: 12px;
+  margin-left: 300px;
+  margin-top: -100px;
+  font: poppins, Bold;
+}
+.para6{
+  font-weight: 400px;
+  font-size: 12px;
+  margin-left: 300px;
+  margin-top: -60px;
+  font: poppins, Bold;
+}
+.para7{
+  font-weight: 400px;
+  font-size: 12px;
+  margin-left: 760px;
+  margin-top: 10px;
+  font: poppins, Bold;
+}
+.para8{
+  font-weight: 400px;
+  font-size: 12px;
+  margin-left: 760px;
+  margin-top: -60px;
+  font: poppins, Bold;
+}
+.para9{
+  font-weight: 400px;
+  font-size: 12px;
+  margin-left: 299px;
+  margin-top: 136px;
+  font: poppins, Bold;
+}
+.para10{
+  font-weight: 400px;
+  font-size: 12px;
+  margin-left: 299px;
+  margin-top: -60px;
+  font: poppins, Bold;
+}
+.para11{
+  font-weight: 400px;
+  font-size: 12px;
+  margin-left: 760px;
+  margin-top: 12px;
+  font: poppins, Bold;
+}
+.para12{
+  font-weight: 400px;
+  font-size: 12px;
+  margin-left: 760px;
+  margin-top: -60px;
+  font: poppins, Bold;
+}
+.para13{
+  font-weight: bold;
+  font-size: 20px;
+  margin-left: 290px;
+  margin-top: 90px;
+}
+.email{
+  font-weight: bold;
+  font-size: 12px;
+  margin-left: 440px;
+  margin-top: -43px;
+}
+.navigator {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  gap: 20px;
+}
+
+.nav-link {
+  cursor: pointer;
+  padding: 10px;
+  text-decoration: none;
+  color: #333; /* Adjust color for your theme */
+  font-weight: bold;
+  position: relative; /* Needed for positioning the circle */
+  transition: color 0.3s;
+}
+
+.nav-link.active {
+  color: #007bff; /* Active color */
+  text-decoration: none; /* Remove underline */
+}
+
+/* This creates the small circle */
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -5px; /* Adjust vertical position of the circle */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px; /* Diameter of the circle */
+  height: 6px; /* Diameter of the circle */
+  background-color: #007bff; /* Color of the circle */
+  border-radius: 50%; /* Makes it a circle */
+}
+.nav-link:hover{
+  color: #007bff;
+}
+.cards-per-page-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 30px;
+  color: white;
+}
+
+.cards-per-page-controls button {
+  padding: 5px 12px;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+.cactus-jack-image{
+  height: 90px;
+  width: 15px;
+}
+.App{
+  max-width: 100%; /* Changed to 100% for responsiveness */
+  width: 100%; /* Changed to 100% for responsiveness */
+  overflow-x: hidden;
+}
+/* Responsive: Mobile First */
+@media (max-width: 600px) {
+  .header1 {
+    
+    font-size: 14px;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  .datagrid {
+    margin-top: -160; /* Removed large margin for responsiveness */
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 600px) {
+  body {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .header1 {
+    height: 80px; /* Adjust header height for mobile */
+    padding: 10px;
+    position: absolute;
+  }
+
+  .header-background-extension {
+    top: 80px; /* Adjust based on new header height */
+    height: 30px; /* Smaller extension for mobile */
+    position: absolute;
+    opacity: 0;
+  }
+
+  .logo {
+    width: 120px; /* Smaller logo for mobile */
+  }
+
+  .dropdown-container {
+    margin: 10px; /* Adjust margin for mobile */
+  }
+
+  .dropdown-toggle {
+    width: 90px; /* Smaller button for mobile */
+    margin-top: -10px; /* Adjust position */
+  }
+
+  .dropdownContent {
+    width: 100vw; /* Full viewport width */
+    height: auto; /* Adjust height dynamically */
+    margin-left: 0;
+    left: 0;
+    right: 0;
+    border-radius: 0;
+  }
+
+  .dropdown-layout {
+    flex-direction: column; /* Stack columns vertically */
+  }
+
+  .menu-column {
+    border-right: none;
+    border-bottom: 1px solid #e0d8ce; /* Add bottom border */
+    padding: 10px;
+  }
+
+  .slideshow-column {
+    padding: 0px;
+    grid-template-columns: 1fr; /* Stack arrows and container */
+  }
+
+  .slide-arrow {
+    display: none; /* Hide arrows on mobile, rely on scroll */
+  }
+
+  .slideshow-container {
+    justify-content: center; /* Center images in slideshow */
+  }
+
+  .slide-image {
+    width: 250px; /* Smaller images for mobile slideshow */
+  }
+
+  .page-scrolling-slideshow .slide-item {
+    height: 300px; /* Adjust height for mobile slideshow */
+  }
+
+  .slide-image-content {
+    height: 300px;
+  }
+
+  .slide-title {
+    font-size: 1.8em;
+  }
+
+  .slide-description {
+    font-size: 1em;
+  }
+
+  .new-page-slideshow-container {
+    max-width: 100%;
+    margin-top: 0;
+  }
+
+  .slides-wrapper {
+    width: 100%;
+  }
+
+  .new-page-slide {
+    width: 100vw; /* Full viewport width for new page slides */
+    height: 300px; /* Adjust height for mobile */
+    object-fit: cover;
+  }
+
+  .datagrid {
+    margin-top: 0; /* Adjusted to move closer to the top for mobile */
+    gap: 0px;
+  }
+
+  .richardis {
+    font-size: 2em;
+    margin-top: -500px;
+  }
+
+  .navigator {
+    flex-direction: row; /* Change to row to make them side-by-side */
+    justify-content: center; /* Center the buttons */
+    gap: 20px; /* Adjust gap as needed */
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr; /* Single column for cards on mobile */
+    padding: -80px;
+    gap: -60px;
+  }
+
+  .card {
+    margin-left: 0; /* Remove specific margin */
+  }
+
+  .footer-box {
+    width: 90%;
+    margin-left: 5%;
+    height: auto;
+    padding: 20px;
+  }
+
+  .footer-img {
+    margin-left: 0;
+    width: 200px;
+  }
+
+  .para, .para1, .para2, .para3, .para4, .para5, .para6, .para7, .para8, .para9, .para10, .para11, .para12 {
+    font-size: 14px;
+    margin-left: 0;
+    margin-top: 10px;
+    text-align: center;
+  }
+  .para13{
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 100px;
+    margin-top: 90px;
+  }
+  .email{
+    font-weight: bold;
+    font-size: 12px;
+    margin-left: 310px;
+    margin-top: -40px;
+  }
+}
+
+/* Tablets */
+@media (max-width: 601px) and (max-width: 900px) {
+  body {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .header1 {
+    height: 80px; /* Adjust header height for mobile */
+    padding: 10px;
+    position: absolute;
+  }
+
+  .header-background-extension {
+    top: 80px; /* Adjust based on new header height */
+    height: 30px; /* Smaller extension for mobile */
+    position: absolute;
+    opacity: 0;
+  }
+
+  .logo {
+    width: 120px; /* Smaller logo for mobile */
+  }
+
+  .dropdown-container {
+    margin: 10px; /* Adjust margin for mobile */
+  }
+
+  .dropdown-toggle {
+    width: 90px; /* Smaller button for mobile */
+    margin-top: -10px; /* Adjust position */
+  }
+
+  .dropdownContent {
+    width: 100vw; /* Full viewport width */
+    height: auto; /* Adjust height dynamically */
+    margin-left: 0;
+    left: 0;
+    right: 0;
+    border-radius: 0;
+  }
+
+  .dropdown-layout {
+    flex-direction: column; /* Stack columns vertically */
+  }
+
+  .menu-column {
+    border-right: none;
+    border-bottom: 1px solid #e0d8ce; /* Add bottom border */
+    padding: 10px;
+  }
+
+  .slideshow-column {
+    padding: 0px;
+    grid-template-columns: 1fr; /* Stack arrows and container */
+  }
+
+  .slide-arrow {
+    display: none; /* Hide arrows on mobile, rely on scroll */
+  }
+
+  .slideshow-container {
+    justify-content: center; /* Center images in slideshow */
+  }
+
+  .slide-image {
+    width: 250px; /* Smaller images for mobile slideshow */
+  }
+
+  .page-scrolling-slideshow .slide-item {
+    height: 300px; /* Adjust height for mobile slideshow */
+  }
+
+  .slide-image-content {
+    height: 300px;
+  }
+
+  .slide-title {
+    font-size: 1.8em;
+  }
+
+  .slide-description {
+    font-size: 1em;
+  }
+
+  .new-page-slideshow-container {
+    max-width: 100%;
+    margin-top: 0;
+  }
+
+  .slides-wrapper {
+    width: 100px;
+  }
+
+  .new-page-slide {
+    width: 100px; /* Full viewport width for new page slides */
+    height: 100px; /* Adjust height for mobile */
+    object-fit: cover;
+  }
+
+  .datagrid {
+    margin-top: 0; /* Adjusted to move closer to the top for mobile */
+    gap: 0px;
+  }
+
+  .richardis {
+    font-size: 2em;
+  }
+
+  .navigator {
+    flex-direction: row; /* Change to row to make them side-by-side */
+    justify-content: center; /* Center the buttons */
+    gap: 20px; /* Adjust gap as needed */
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr; /* Single column for cards on mobile */
+    padding: -80px;
+    gap: -60px;
+  }
+
+  .card {
+    margin-left: 0; /* Remove specific margin */
+  }
+
+  .footer-box {
+    width: 90%;
+    margin-left: 5%;
+    height: auto;
+    padding: 20px;
+  }
+
+  .footer-img {
+    margin-left: 0;
+    width: 200px;
+  }
+
+  .para, .para1, .para2, .para3, .para4, .para5, .para6, .para7, .para8, .para9, .para10, .para11, .para12 {
+    font-size: 14px;
+    margin-left: 0;
+    margin-top: 10px;
+    text-align: center;
+  }
+  .para13{
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 100px;
+    margin-top: 90px;
+  }
+  .email{
+    font-weight: bold;
+    font-size: 12px;
+    margin-left: 310px;
+    margin-top: -40px;
+  }
+}
+  
+    .footer-box {
+      width: 90%;
+      margin-left: 5%;
+      height: auto;
+      padding: 20px;
+    }
+  
+    .footer-img {
+      margin-left: 0;
+      width: 200px;
+    }
+  
+    .para, .para1, .para2, .para3, .para4, .para5, .para6, .para7, .para8, .para9, .para10, .para11, .para12 {
+      font-size: 14px;
+      margin-left: 0;
+      margin-top: 10px;
+      text-align: center;
+    }
+    .para13{
+      font-weight: bold;
+      font-size: 20px;
+      margin-left: 100px;
+      margin-top: 90px;
+    }
+    .email{
+      font-weight: bold;
+      font-size: 12px;
+      margin-left: 310px;
+      margin-top: -40px;
+    }
+
+
+/* Laptops and up */
+@media (min-width: 901px) {
+  .box {
+    font-size: 18px;
+  }
+}

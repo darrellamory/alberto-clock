@@ -1,0 +1,33 @@
+.dropdownContent {
+    position: absolute;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 9999;
+    list-style: none;
+    padding: 0;
+    margin: 5px 0 0 0;
+    border-radius: 5px;
+    overflow: hidden; /* Ensures items stay within the rounded corners */
+    visibility: visible; /* Hidden by default */
+    opacity: 1; /* Start fully transparent */
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth transition */
+    overflow-y: auto; /* Allows scrollbar to appear */
+}
+
+.dropdownContent.open {
+    visibility: visible; /* Make visible when open */
+    opacity: 1; /* Fade in */
+}
+
+/* Styling for individual list items */
+.dropdownContent li a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    z-index: 9999;
+}
+
+.dropdownContent li a:hover {
+    
+}

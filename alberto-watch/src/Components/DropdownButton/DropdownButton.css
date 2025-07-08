@@ -1,0 +1,38 @@
+
+
+/* Styling for the button */
+.dropdownbutton {
+    background-color: #4a90e2;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    width: 200px; /* Or whatever width you prefer */
+    margin-left: 20px;
+}
+
+.dropdownbutton:hover {
+    background-color: #357abd;
+}
+
+/* Arrow styling */
+.arrow {
+    margin-left: 5px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Rotated arrow when the dropdown is open */
+.arrowOpen {
+    transform: rotate(-135deg);
+}
+
+
+
