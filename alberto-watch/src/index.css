@@ -245,7 +245,7 @@ body {
   position: relative;
   z-index: 0; /* Ensure it is behind the header and dropdown */
   margin-top: 0px;
-  height: 1000px; /* Reduced height to bring datagrid closer */
+  height: 900px; /* Reduced height to bring datagrid closer */
   display: flex;
 }
 
@@ -259,55 +259,22 @@ body {
 
 .new-page-slide {
   width: 1500px;
+  height: 900px; /* Set a consistent height for all slides */
   flex-shrink: 0;
-  object-fit: fill;
+  object-fit: fill; /* Ensures the image fills the entire slide area, potentially distorting aspect ratio */
+}
+
+.gallery-slide {
+  width: 1500px;
+  height: 1000px; /* Set a consistent height for all slides */
+  flex-shrink: 0;
+  object-fit: fill; /* Ensures the image fills the entire slide area, potentially distorting aspect ratio */
 }
 
 .page-container {
   width: 1500px;
   overflow: hidden;
   position: relative;
-}
-
-/*
-  You can now style individual slides.
-  The index corresponds to the order of images in your `images` array in NewPage.jsx
-*/
-
-/* Example 1: Make the first image (LeBron, index 0) fit completely inside the slide area */
-.slide-image-0 {
-  width: 1500px;
-}
-
-/* Example 2: For the third image (Hamilton, index 2), focus on the top part of the image */
-.slide-image-2 {
-  object-position: center top;
-  width: 1500px;
-  height: 1200px;
-  object-fit: cover;
-}
-
-/* Add this for testing */
-.slide-image-1 {
-  width: 1500px;
-  height: 1200px;
-  object-fit: cover;
-}
-.slide-image-3 {
-  width: 1500px;
-  height: 1200px;
-}
-.slide-image-4 {
-  width: 1500px;
-  height: 1200px;
-}
-.slide-image-5 {
-  width: 1500px;
-  height: 1200px;
-}
-.slide-image-6 {
-  width: 1500px;
-  height: 1200px;
 }
 
 .card:hover {
@@ -703,7 +670,7 @@ body {
 
   .richardis {
     font-size: 2em;
-    margin-top: -500px;
+    margin-top: -300px;
   }
 
   .navigator {
@@ -752,200 +719,320 @@ body {
     margin-left: 310px;
     margin-top: -40px;
   }
-}
-
-/* Tablets */
-@media (max-width: 601px) and (max-width: 900px) {
-  body {
+  
+  .store-locator-section {
+    padding: 40px 20px;
+    background-color: #f8f8f8;
+    color: #333;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .store-locator-heading {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #007bff; /* A primary color for headings */
+  }
+  
+  /* Sitemap styles */
+  /* Sitemap styles */
+  .sitemap-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 20px; /* Increased padding */
+    background-color: #1a1a1a; /* Darker background for the sitemap page */
+    color: #f0f0f0; /* Lighter text color */
+    font-family: "Poppins", sans-serif;
+    min-height: 100vh; /* Ensure it takes full viewport height */
+  }
+  
+  .sitemap-title {
+    font-size: 3.5em; /* Larger title */
+    font-weight: 700; /* Bolder font weight */
+    margin-bottom: 50px;
+    color: #00aaff; /* A vibrant blue for headings */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Subtle text shadow */
+  }
+  
+  .world-map-container {
     width: 100%;
-    max-width: 100%;
+    max-width: 100%; /* Apply mobile map width to regular CSS */
+    margin-bottom: 60px;
+    border: 2px solid #333; /* Border around the map */
+    border-radius: 10px; /* Rounded corners for the map container */
+    overflow: hidden; /* Ensures map stays within bounds */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* More prominent shadow */
   }
-
-  .header1 {
-    height: 80px; /* Adjust header height for mobile */
-    padding: 10px;
-    position: absolute;
-  }
-
-  .header-background-extension {
-    top: 80px; /* Adjust based on new header height */
-    height: 30px; /* Smaller extension for mobile */
-    position: absolute;
-    opacity: 0;
-  }
-
-  .logo {
-    width: 120px; /* Smaller logo for mobile */
-  }
-
-  .dropdown-container {
-    margin: 10px; /* Adjust margin for mobile */
-  }
-
-  .dropdown-toggle {
-    width: 90px; /* Smaller button for mobile */
-    margin-top: -10px; /* Adjust position */
-  }
-
-  .dropdownContent {
-    width: 100vw; /* Full viewport width */
-    height: auto; /* Adjust height dynamically */
-    margin-left: 0;
-    left: 0;
-    right: 0;
-    border-radius: 0;
-  }
-
-  .dropdown-layout {
-    flex-direction: column; /* Stack columns vertically */
-  }
-
-  .menu-column {
-    border-right: none;
-    border-bottom: 1px solid #e0d8ce; /* Add bottom border */
-    padding: 10px;
-  }
-
-  .slideshow-column {
-    padding: 0px;
-    grid-template-columns: 1fr; /* Stack arrows and container */
-  }
-
-  .slide-arrow {
-    display: none; /* Hide arrows on mobile, rely on scroll */
-  }
-
-  .slideshow-container {
-    justify-content: center; /* Center images in slideshow */
-  }
-
-  .slide-image {
-    width: 250px; /* Smaller images for mobile slideshow */
-  }
-
-  .page-scrolling-slideshow .slide-item {
-    height: 300px; /* Adjust height for mobile slideshow */
-  }
-
-  .slide-image-content {
-    height: 300px;
-  }
-
-  .slide-title {
-    font-size: 1.8em;
-  }
-
-  .slide-description {
-    font-size: 1em;
-  }
-
-  .new-page-slideshow-container {
-    max-width: 100%;
-    margin-top: 0;
-  }
-
-  .slides-wrapper {
-    width: 100px;
-  }
-
-  .new-page-slide {
-    width: 100px; /* Full viewport width for new page slides */
-    height: 100px; /* Adjust height for mobile */
-    object-fit: cover;
-  }
-
-  .datagrid {
-    margin-top: 0; /* Adjusted to move closer to the top for mobile */
-    gap: 0px;
-  }
-
-  .richardis {
-    font-size: 2em;
-  }
-
-  .navigator {
-    flex-direction: row; /* Change to row to make them side-by-side */
-    justify-content: center; /* Center the buttons */
-    gap: 20px; /* Adjust gap as needed */
-  }
-
-  .cards-grid {
-    grid-template-columns: 1fr; /* Single column for cards on mobile */
-    padding: -80px;
-    gap: -60px;
-  }
-
-  .card {
-    margin-left: 0; /* Remove specific margin */
-  }
-
-  .footer-box {
-    width: 90%;
-    margin-left: 5%;
+  
+  .world-map-image {
+    width: 100%;
     height: auto;
-    padding: 20px;
+    display: block;
+    border-radius: 8px; /* Optional: add some border-radius to the image */
   }
-
-  .footer-img {
-    margin-left: 0;
-    width: 200px;
-  }
-
-  .para, .para1, .para2, .para3, .para4, .para5, .para6, .para7, .para8, .para9, .para10, .para11, .para12 {
-    font-size: 14px;
-    margin-left: 0;
-    margin-top: 10px;
+  
+  .sitemap-links {
     text-align: center;
+    width: 100%;
+    max-width: 600px;
   }
-  .para13{
-    font-weight: bold;
-    font-size: 20px;
-    margin-left: 100px;
-    margin-top: 90px;
+  
+  .sitemap-links h2 {
+    font-size: 2.2em;
+    margin-bottom: 25px;
+    color: #00aaff;
+    border-bottom: 1px solid #444; /* Underline for section title */
+    padding-bottom: 10px;
   }
-  .email{
-    font-weight: bold;
-    font-size: 12px;
-    margin-left: 310px;
-    margin-top: -40px;
+  
+  .sitemap-links ul {
+    list-style: none;
+    padding: 0;
+    display: grid; /* Use grid for better link layout */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid */
+    gap: 15px; /* Space between grid items */
+  }
+  
+  .sitemap-links li {
+    margin-bottom: 0; /* Reset margin as gap handles spacing */
+    background-color: #2c2c2c; /* Darker background for list items */
+    border-radius: 8px;
+    padding: 12px 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .sitemap-links li:hover {
+    background-color: #3a3a3a; /* Slightly lighter on hover */
+    transform: translateY(-3px); /* Lift effect on hover */
+  }
+  
+  .sitemap-links a {
+    color: #ffffff; /* White text for links */
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: 500;
+    display: block; /* Make the whole list item clickable */
+    transition: color 0.3s ease;
+  }
+  
+  .sitemap-links a:hover {
+    color: #00aaff; /* Highlight link text on hover */
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .sitemap-title {
+      font-size: 2.5em;
+    }
+  
+    .world-map-container {
+      max-width: 100%;
+    }
+  
+    .sitemap-links ul {
+      grid-template-columns: 1fr; /* Single column on smaller screens */
+    }
+  }
+  
+  .store-locator-description {
+    font-size: 1.1em;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .store-locator-list {
+    list-style: none; /* Remove default bullet points */
+    padding: 0;
+    margin: 0 auto;
+    max-width: 600px;
+  }
+  
+  .store-locator-list li {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    padding: 15px 20px;
+    font-size: 1.05em;
+    color: #555;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .store-locator-list li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
   }
 }
-  
-    .footer-box {
-      width: 90%;
-      margin-left: 5%;
-      height: auto;
-      padding: 20px;
-    }
-  
-    .footer-img {
-      margin-left: 0;
-      width: 200px;
-    }
-  
-    .para, .para1, .para2, .para3, .para4, .para5, .para6, .para7, .para8, .para9, .para10, .para11, .para12 {
-      font-size: 14px;
-      margin-left: 0;
-      margin-top: 10px;
-      text-align: center;
-    }
-    .para13{
-      font-weight: bold;
-      font-size: 20px;
-      margin-left: 100px;
-      margin-top: 90px;
-    }
-    .email{
-      font-weight: bold;
-      font-size: 12px;
-      margin-left: 310px;
-      margin-top: -40px;
-    }
+.slides-wrapper1 {
+  display: flex;
+  transition: transform 1s ease-in-out;
+  z-index: 1;
+  width: 1500px;
+}
+.new-page-slideshow-container1 {
+  width: 1500px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  z-index: 0; /* Ensure it is behind the header and dropdown */
+  margin-top: 0px;
+  height: 1000px; /* Reduced height to bring datagrid closer */
+  display: flex;
+}
 
+.store-locator-section {
+  padding: 40px 20px;
+  background-color: #333;
+  color: #333;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+}
 
-/* Laptops and up */
-@media (min-width: 901px) {
-  .box {
-    font-size: 18px;
-  }
+.store-locator-heading {
+  font-size: 2.5em;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #007bff; /* A primary color for headings */
+}
+
+.store-locator-description {
+  font-size: 1.1em;
+  margin-bottom: 30px;
+  line-height: 1.6;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+}
+
+.store-locator-list {
+  list-style: none; /* Remove default bullet points */
+  padding: 0;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.store-locator-list li {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  padding: 15px 20px;
+  font-size: 1.05em;
+  color: #555;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.store-locator-list li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+.sitemap-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 20px; /* Increased padding */
+  background-color: #1a1a1a; /* Darker background for the sitemap page */
+  color: #f0f0f0; /* Lighter text color */
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh; /* Ensure it takes full viewport height */
+}
+
+.sitemap-title {
+  font-size: 3.5em; /* Larger title */
+  font-weight: 700; /* Bolder font weight */
+  margin-bottom: 50px;
+  color: #00aaff; /* A vibrant blue for headings */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Subtle text shadow */
+}
+
+.world-map-container {
+  width: 100%;
+  max-width: 100%; /* Apply mobile map width to regular CSS */
+  margin-bottom: 60px;
+  border: 2px solid #333; /* Border around the map */
+  border-radius: 10px; /* Rounded corners for the map container */
+  overflow: hidden; /* Ensures map stays within bounds */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* More prominent shadow */
+}
+
+.world-map {
+  width: 100px;
+  height: auto;
+  display: block; /* Remove extra space below SVG */
+}
+.world-map-image{
+  margin-left: 200px;
+}
+
+.ocean-background {
+  fill: #000000; /* Ocean background is black */
+}
+
+.continent {
+  fill: #2c2c2c; /* Continents are a dark grey, contrasting with black ocean */
+  stroke: #555;
+  stroke-width: 0.5px; /* Thinner stroke */
+  transition: fill 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.continent:hover {
+  fill: #007bff; /* Highlight continents on hover */
+}
+
+.sitemap-links {
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
+}
+
+.sitemap-links h2 {
+  font-size: 2.2em;
+  margin-bottom: 25px;
+  color: #00aaff;
+  border-bottom: 1px solid #444; /* Underline for section title */
+  padding-bottom: 10px;
+}
+
+.sitemap-links ul {
+  list-style: none;
+  padding: 0;
+  display: grid; /* Use grid for better link layout */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid */
+  gap: 15px; /* Space between grid items */
+}
+
+.sitemap-links li {
+  margin-bottom: 0; /* Reset margin as gap handles spacing */
+  background-color: #2c2c2c; /* Darker background for list items */
+  border-radius: 8px;
+  padding: 12px 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.sitemap-links li:hover {
+  background-color: #3a3a3a; /* Slightly lighter on hover */
+  transform: translateY(-3px); /* Lift effect on hover */
+}
+
+.sitemap-links a {
+  color: #ffffff; /* White text for links */
+  text-decoration: none;
+  font-size: 1.2em;
+  font-weight: 500;
+  display: block; /* Make the whole list item clickable */
+  transition: color 0.3s ease;
+}
+
+.sitemap-links a:hover {
+  color: #00aaff; /* Highlight link text on hover */
 }

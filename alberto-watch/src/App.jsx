@@ -7,14 +7,16 @@ import Layout from './Layout.jsx';
 import HomePage from './pages/HomePage.jsx';
 import NewPage from './pages/NewPage.jsx';
 import RolexPage from './pages/RolexPage.jsx';
-import APpage from './pages/APpage.jsx';
+import APpage from './Pages/APpage.jsx';
 import HublotPage from './Pages/HublotPage.jsx';
-
+import Gallery from './Pages/Gallery.jsx';
+import { StoreLocator } from './StoreLocator.jsx'; // Import StoreLocator
+import Sitemap from './Pages/Sitemap.jsx'; // Import Sitemap
 // Import assets
-import rolex1 from './assets/rolex1.jpg'; 
-import hub1 from './assets/hub1.jpg'; 
-import rich1 from './assets/rich1.jpg'; 
-import ap1 from './assets/ap1.jpg'; 
+import rolex1 from './assets/rolex1.jpg';
+import hub1 from './assets/hub1.jpg';
+import rich1 from './assets/rich1.jpg';
+import ap1 from './assets/ap1.jpg';
 
 const menuItems = [
   { label: 'Rolex', href: '/rolex' },
@@ -22,6 +24,9 @@ const menuItems = [
   { label: 'Richard Mille', href: '/new-page' },
   { label: 'Audemar Piuget', href: '/AP' },
   { label: 'Hublot', href: '/hublot' },
+  { label: 'Gallery', href: '/gallery' },
+  { label: 'Store Locator', href: '/store-locator' }, /* Corrected label and path for Store Locator */
+  { label: 'Sitemap', href: '/sitemap' }, /* Added Sitemap to menu items */
 ];
 
 const slideshowImages = [
@@ -68,6 +73,9 @@ function App() {
           <Route path="rolex" element={<RolexPage />} />
           <Route path="AP" element={<APpage />} />
           <Route path="hublot" element={<HublotPage />} />
+          <Route path="gallery" element={<Gallery />} />
+          <Route path="store-locator" element={<StoreLocator />} /> {/* Corrected path for StoreLocator */}
+          <Route path="sitemap" element={<Sitemap />} /> {/* Add route for Sitemap */}
         </Route>
       </Routes>
     </div>
