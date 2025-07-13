@@ -117,6 +117,7 @@ const NewPage = () => {
           {cardsToShow.map(watch => (
             <Card
               key={watch.id}
+              id={watch.id} /* Pass the id prop */
               image={watch.image}
               title={watch.title}
               text={watch.text}

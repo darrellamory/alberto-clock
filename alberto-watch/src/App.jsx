@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import { CartProvider, Cart } from './Cart.jsx'; // Import CartProvider and Cart component
 
 
 // Import Layout and Page components
@@ -27,6 +28,7 @@ const menuItems = [
   { label: 'Gallery', href: '/gallery' },
   { label: 'Store Locator', href: '/store-locator' }, /* Corrected label and path for Store Locator */
   { label: 'Sitemap', href: '/sitemap' }, /* Added Sitemap to menu items */
+  { label: 'Cart', href: '/cart' }, /* Added Cart to menu items */
 ];
 
 const slideshowImages = [
@@ -55,29 +57,32 @@ function App() {
 
   return (
     <div className="App">
-      <Routes>
-        <Route 
-          path="/" 
-          element={
-            <Layout 
-              menuItems={menuItems} 
-              slideshowImages={slideshowImages} 
-              onItemClick={handleSelect}
-              location={location}
-              visitorCount={visitorCount}
-            />
-          }
-        >
-          <Route index element={<HomePage />} />
-          <Route path="new-page" element={<NewPage />} />
-          <Route path="rolex" element={<RolexPage />} />
-          <Route path="AP" element={<APpage />} />
-          <Route path="hublot" element={<HublotPage />} />
-          <Route path="gallery" element={<Gallery />} />
-          <Route path="store-locator" element={<StoreLocator />} /> {/* Corrected path for StoreLocator */}
-          <Route path="sitemap" element={<Sitemap />} /> {/* Add route for Sitemap */}
-        </Route>
-      </Routes>
+      <CartProvider> {/* Wrap the entire application with CartProvider */}
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Layout
+                menuItems={menuItems}
+                slideshowImages={slideshowImages}
+                onItemClick={handleSelect}
+                location={location}
+                visitorCount={visitorCount}
+              />
+            }
+          >
+            <Route index element={<HomePage />} />
+            <Route path="new-page" element={<NewPage />} />
+            <Route path="rolex" element={<RolexPage />} />
+            <Route path="AP" element={<APpage />} />
+            <Route path="hublot" element={<HublotPage />} />
+            <Route path="gallery" element={<Gallery />} />
+            <Route path="store-locator" element={<StoreLocator />} />
+            <Route path="sitemap" element={<Sitemap />} />
+            <Route path="cart" element={<Cart />} /> {/* Add route for Cart component */}
+          </Route>
+        </Routes>
+      </CartProvider>
     </div>
   );
 }

@@ -7,32 +7,34 @@ export const Footer = ({ location }) => {
 
   useEffect(() => {
     const interval = setInterval(() => setDateTime(new Date()), 1000);
-    <div className="footer-container"></div>;
     return () => clearInterval(interval);
   }, []);
 
   return (
     <footer className="footer">
-      {dateTime.toLocaleString()} | Location: {location}
-      {/* New footer box element */}
-      <div className="footer-box">
-        <img className="footer-img" src={logo1}></img>
-        <p className="para">Rolex Watches </p>
-        <p className="para1">Richard Mille Watches </p>
-        <p className="para2">Audemar Piuget Watches </p>
-        <p className="para3">Hublot Watches </p>
-        <p className="para5">Classic</p>
-        <p className="para6">All</p>
-        <p className="para7">Classic</p>
-        <p className="para8">All</p>
-        <p className="para9">Classic</p>
-        <p className="para10">All</p>
-        <p className="para11">Classic</p>
-        <p className="para12">All</p>
-        <p className="para13">Contact us</p>
-        <p className="email">info@albertowatches.co.ug</p>
+      <div className="footer-content">
+        <div className="footer-section footer-info">
+          <img className="footer-logo" src={logo1} alt="Alberto Watch Logo" />
+          <p className="footer-datetime">{dateTime.toLocaleString()}</p>
+          <p className="footer-location">Location: {location}</p>
+        </div>
+
+        <div className="footer-section footer-links">
+          <h3>Collections</h3>
+          <ul>
+            <li><a href="/rolex">Rolex Watches</a></li>
+            <li><a href="/new-page">Richard Mille Watches</a></li>
+            <li><a href="/AP">Audemars Piguet Watches</a></li>
+            <li><a href="/hublot">Hublot Watches</a></li>
+          </ul>
+        </div>
+
+        <div className="footer-section footer-contact">
+          <h3>Contact Us</h3>
+          <p>Email: <a href="mailto:info@albertowatches.co.ug">info@albertowatches.co.ug</a></p>
+          {/* Add more contact info if available */}
+        </div>
       </div>
     </footer>
   );
 };
-<div className="footer-container"></div>;
