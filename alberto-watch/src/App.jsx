@@ -5,9 +5,9 @@ import { CartProvider, Cart } from './Cart.jsx'; // Import CartProvider and Cart
 
 // Import Layout and Page components
 import Layout from './Layout.jsx';
-import HomePage from './pages/HomePage.jsx';
-import NewPage from './pages/NewPage.jsx';
-import RolexPage from './pages/RolexPage.jsx';
+import HomePage from './Pages/HomePage.jsx';
+import NewPage from './Pages/NewPage.jsx';
+import RolexPage from './Pages/RolexPage.jsx';
 import APpage from './Pages/APpage.jsx';
 import HublotPage from './Pages/HublotPage.jsx';
 import Gallery from './Pages/Gallery.jsx';
